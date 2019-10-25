@@ -1,0 +1,27 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Verdana, sans-serif;
+}
+.menu-main{
+    display: flex;
+    box-shadow: 0 7px 6px 4px darkslategrey;
+}
+
+.menu-main li {
+    list-style: none;
+    text-transform: uppercase;
+    background-color: cadetblue;
+    padding: 10px 1px;
+    font-weight: bold;
+    text-align: center;
+    flex-grow: 1;
+    border-right: 1px dashed lightyellow;
+    border-bottom: 3px solid  darkslategrey ;
+    color: beige;
+}
+
+.menu-main li:hover {
+    background-color: darkcyan;
+    border-bottom: 3px solid  cyan;
+}

@@ -1,32 +1,31 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import Router from './router';
+import Menu from './menu/menu';
+import News from "./news/news";
+import Blog from "./blog/blog";
+import {BrowserRouter as Router, Route} from "react-router-dom";
 
-const mapping = {
-    '#about':
-            <div>
-                About us (<a href='#'> Link on main </a>)
-            </div> ,
-    '#news':
-            <div>
-                News (<a href='#'> Link on main </a>)
-            </div> ,
-    '*':
-        <div> Main Page
-            <br />
-            <a href='#about'> About us </a>
-            <br />
-            <a href='#news'> news </a>
-        </div>
-
-}
 
 //ReactDOM.render(<App />, document.getElementById('root'));
 // ReactDOM.render(<h1>React</h1>,
 //         document.getElementById('root'));
 
-ReactDOM.render(<Router mapping={mapping}/>, document.getElementById('root'));
+ReactDOM.render(
+    <Router>
+        <Menu />
+        <Route exact path="/" render={() =>
+            <h1> Main Page </h1>}
+        />
+        <Route exact path="/news" component={News}/>
+        <Route path="/news/:id" render={({match}) => {
+            console.log(match.params.id);
+            return (<h1>{match.params.id}</h1>)
+        }}
+        />
+        <Route path="/blog" component={Blog}/>
+    </Router>,
+    document.getElementById('root'));
 
 
 
